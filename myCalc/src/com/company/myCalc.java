@@ -10,16 +10,18 @@ public class myCalc {
             Scanner in = new Scanner(System.in);
             System.out.println("Input:");
             String input = in.nextLine().replace(" ","");
-            Main expression = new Main();
 
             if (input.length() < 3){
                 throw new Exception();
-            }else if(input.contains(",") || input.contains(".")){
+            }
+            if(input.contains(",") || input.contains(".")){
                 throw new Exception();
-            }else if ( input.substring(input.length()-1).matches("[+-/*]") ){
+            }
+            if (input.substring(input.length()-1).matches("[+-/*]") ){
                 throw new Exception();
             }
 
+            Main expression = new Main();
             System.out.println("Output:\n" + expression.calc(input));
         }catch (Exception ex){
             System.out.println("Output:\nИсключение");
